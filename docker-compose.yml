@@ -1,0 +1,20 @@
+services:
+  routing_server:
+    build:
+      context: .
+      dockerfile: services/routing_server/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ERF_SERVICE_NAME=routing_server
+      - ERF_LOG_LEVEL=INFO
+
+  admin_server:
+    build:
+      context: .
+      dockerfile: services/admin_server/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - ERF_SERVICE_NAME=admin_server
+      - ERF_LOG_LEVEL=INFO

@@ -1,0 +1,11 @@
+from __future__ import annotations
+
+from fastapi import HTTPException
+
+
+class ERFError(Exception):
+    """Base exception for ERF."""
+
+
+def http_error(status_code: int, message: str) -> HTTPException:
+    return HTTPException(status_code=status_code, detail={"error": message})
